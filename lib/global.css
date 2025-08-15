@@ -1,4 +1,5 @@
 @import 'tailwindcss';
+@custom-variant dark (&:where(.dark, .dark *));
 
 html {
   font-size: 16px;
@@ -22,14 +23,14 @@ html {
   --color-gray-93: #eeeeee;
   --color-white: #ffffff;
   --color-primary-on-light: #246347;
-  --color-secondary-on-light: thulian;
+  --color-secondary-on-light: #df6da9;
   --color-primary-on-dark: #81d8d0;
-  --color-secondary-on-dark: pink;
+  --color-secondary-on-dark: #e791bf;
   --color-success: #14662d;
   --color-error: #741427;
   --color-warning: #c2530a;
   --color-info: #3a5683;
-  --color-background-on-dark: green;
+  --color-background-on-dark: #1e2d2f;
   --color-background-on-light: #fdf5e5;
   --color-nav-background-on-dark: #2E4649;
   --color-nav-background-on-light: #E8E1D3;
