@@ -22,7 +22,7 @@ const preview: Preview = {
       },
       defaultTheme: 'light',
     }),
-  ]
+  ],
 };
 
 export default preview;

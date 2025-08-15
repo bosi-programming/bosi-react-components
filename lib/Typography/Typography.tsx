@@ -1,17 +1,9 @@
-import type { ReactNode } from "react";
-import { colorClass, getComponent, sizeClass } from "./Typography.util";
+import type { ReactNode } from 'react';
+import { colorClass, getComponent, sizeClass } from './Typography.util';
 
-export type TColor =
-  'default' |
-  'primary' |
-  'secondary';
+export type TColor = 'default' | 'primary' | 'secondary';
 
-export type TSize = 'body' |
-  'h1' |
-  'h2' |
-  'h3' |
-  'h4' |
-  'details';
+export type TSize = 'body' | 'h1' | 'h2' | 'h3' | 'h4' | 'details';
 export interface TypographyProps {
   color?: TColor;
   size?: TSize;
@@ -32,5 +24,5 @@ export function Typography({
   const finalClassName = `${colorClassName} ${sizeClassName} ${className ? className : ''}`;
   const Component = getComponent(size, as);
 
-  return <Component className={finalClassName}>{children}</Component>
+  return <Component className={finalClassName}>{children}</Component>;
 }
