@@ -1,13 +1,13 @@
-import { type ReactNode } from 'react'
-import { baseButtonClasses, sizeClasses } from './Button.styles'
-import { getColor } from './Button.utils'
+import { type ReactNode } from 'react';
+import { baseButtonClasses, sizeClasses } from './Button.styles';
+import { getColor } from './Button.utils';
 
 export interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
-  children: ReactNode
-  className?: string
-  color?: 'default' | 'primary' | 'secondary'
-  size?: 'small' | 'medium' | 'full-width'
-  action?: 'error' | 'warning' | 'success' | 'info'
+  children: ReactNode;
+  className?: string;
+  color?: 'default' | 'primary' | 'secondary';
+  size?: 'small' | 'medium' | 'full-width';
+  action?: 'error' | 'warning' | 'success' | 'info';
 }
 
 export const Button = ({
@@ -26,11 +26,15 @@ export const Button = ({
     ${colorClass}${' '}
     ${sizeClass}${' '}
     ${className ? className : ''}
-  `
+  `;
 
   return (
-    <button onClick={onClick} className={buttonClasses} {...props}>
+    <button
+      onClick={onClick}
+      className={buttonClasses}
+      {...props}
+    >
       {children}
     </button>
-  )
-}
+  );
+};
