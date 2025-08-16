@@ -29,6 +29,6 @@ export function sizeClass(size: TypographyProps['size']) {
 
 export function getComponent(size: TypographyProps['size'], as: TypographyProps['as']) {
   if (as) return as;
-  if (size === 'body' || size === 'details') return 'p';
+  if (size === 'body') return 'p';
   return size || 'p';
 }
