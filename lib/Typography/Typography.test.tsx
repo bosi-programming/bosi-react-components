@@ -2,14 +2,20 @@ import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 import { Typography } from './Typography';
 
-
 describe('Typography as and size options', () => {
   it('should render as', () => {
-    render(<Typography size='body' as='h1'>Test</Typography>);
+    render(
+      <Typography
+        size="body"
+        as="h1"
+      >
+        Test
+      </Typography>,
+    );
     expect(screen.getByRole('heading', { level: 1 })).toBeInTheDocument();
   });
   it('should render a paragraphy', () => {
-    render(<Typography size='body'>Test</Typography>);
+    render(<Typography size="body">Test</Typography>);
     expect(screen.getByRole('paragraph')).toBeInTheDocument();
   });
   it('should render a h1', () => {
@@ -81,11 +87,15 @@ describe('Typography color options', () => {
   });
   it('should have primary color classes', () => {
     render(<Typography color="primary">Test</Typography>);
-    expect(screen.getByRole('paragraph')).toHaveClass('text-primary-on-light dark:text-primary-on-dark');
+    expect(screen.getByRole('paragraph')).toHaveClass(
+      'text-primary-on-light dark:text-primary-on-dark',
+    );
   });
   it('should have secondary color classes', () => {
     render(<Typography color="secondary">Test</Typography>);
-    expect(screen.getByRole('paragraph')).toHaveClass('text-secondary-on-light dark:text-secondary-on-dark');
+    expect(screen.getByRole('paragraph')).toHaveClass(
+      'text-secondary-on-light dark:text-secondary-on-dark',
+    );
   });
 });
 
@@ -95,30 +105,30 @@ describe('Typography size classes', () => {
     expect(screen.getByRole('paragraph')).toHaveClass('text-body mb-4');
   });
   it('should have h1 classes', () => {
-    render(<Typography size='h1'>Test</Typography>);
+    render(<Typography size="h1">Test</Typography>);
     expect(screen.getByRole('heading')).toHaveClass('text-h1 font-bold');
   });
   it('should have h2 classes', () => {
-    render(<Typography size='h2'>Test</Typography>);
+    render(<Typography size="h2">Test</Typography>);
     expect(screen.getByRole('heading')).toHaveClass('text-h2 font-bold');
   });
   it('should have h3 classes', () => {
-    render(<Typography size='h3'>Test</Typography>);
+    render(<Typography size="h3">Test</Typography>);
     expect(screen.getByRole('heading')).toHaveClass('text-h3 font-bold');
   });
   it('should have h4 classes', () => {
-    render(<Typography size='h4'>Test</Typography>);
+    render(<Typography size="h4">Test</Typography>);
     expect(screen.getByRole('heading')).toHaveClass('text-h4 font-bold');
   });
   it('should have details classes', () => {
-    render(<Typography size='details'>Test</Typography>);
+    render(<Typography size="details">Test</Typography>);
     expect(screen.getByText('Test')).toHaveClass('text-details');
   });
-})
+});
 
 describe('Typography extra properties', () => {
   it('should accept a className', () => {
-    render(<Typography className='test'>Test</Typography>);
+    render(<Typography className="test">Test</Typography>);
     expect(screen.getByRole('paragraph')).toHaveClass('test');
   });
-})
+});

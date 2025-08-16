@@ -1,18 +1,14 @@
-import { default as default_2 } from 'react';
 import { JSX } from 'react/jsx-runtime';
 import { ReactNode } from 'react';
 
-export declare const Button: default_2.ForwardRefExoticComponent<ButtonProps & default_2.RefAttributes<HTMLButtonElement>>;
+export declare const Button: ({ children, className, onClick, color, size, action, ...props }: ButtonProps) => JSX.Element;
 
-export declare interface ButtonProps extends default_2.ButtonHTMLAttributes<HTMLButtonElement> {
-    /**
-     * The color of the button.
-     */
-    color?: 'primary' | 'success' | 'info' | 'warning' | 'error';
-    /**
-     * The size of the button.
-     */
-    size?: 'small' | 'medium' | 'large';
+export declare interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
+    children: ReactNode;
+    className?: string;
+    color?: 'default' | 'primary' | 'secondary';
+    size?: 'small' | 'medium' | 'full-width';
+    action?: 'error' | 'warning' | 'success' | 'info';
 }
 
 export declare type TColor = 'default' | 'primary' | 'secondary';
