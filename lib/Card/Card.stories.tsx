@@ -17,7 +17,6 @@ export const DefaultCard: Story = {
   args: {
     title: 'Card',
     content: <Typography>Content</Typography>,
-    actions: <Button action='success'>Click me</Button>
+    actions: <Button action="success">Click me</Button>,
   },
 };
-
