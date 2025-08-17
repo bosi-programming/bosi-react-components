@@ -19,6 +19,22 @@ export declare interface ButtonProps extends React.HTMLAttributes<HTMLButtonElem
   action?: 'error' | 'warning' | 'success' | 'info';
 }
 
+export declare function Card({ title, content, actions, className }: CardProps): JSX.Element;
+
+export declare interface CardProps {
+  title: ReactNode;
+  content: ReactNode;
+  actions?: ReactNode;
+  className?: string;
+}
+
+export declare function Paper({ children, className }: PaperProps): JSX.Element;
+
+export declare interface PaperProps {
+  children: ReactNode;
+  className?: string;
+}
+
 export declare type TColor = 'default' | 'primary' | 'secondary';
 
 export declare type TSize = 'body' | 'h1' | 'h2' | 'h3' | 'h4' | 'details';

@@ -93,5 +93,30 @@ function Typography({ color = 'default', size = 'body', className, children, as 
   return /* @__PURE__ */ jsxRuntime.jsx(Component, { className: finalClassName, children });
 }
 
+function Card({ title, content, actions, className }) {
+  return /* @__PURE__ */ jsxRuntime.jsxs('div', {
+    className: `px-5 py-6 flex justify-between flex-col items-center h-[365px] w-full md:w-[270px] rounded-3xl border-black border shadow-card dark:border-white dark:shadow-card-dark ${className ? className : ''}`,
+    'data-testid': 'card',
+    children: [
+      /* @__PURE__ */ jsxRuntime.jsx(Typography, {
+        color: 'primary',
+        size: 'h3',
+        children: title,
+      }),
+      /* @__PURE__ */ jsxRuntime.jsx('div', { className: 'mt-2', children: content }),
+      /* @__PURE__ */ jsxRuntime.jsx('div', { children: actions }),
+    ],
+  });
+}
+
+function Paper({ children, className }) {
+  return /* @__PURE__ */ jsxRuntime.jsx('div', {
+    className: `p-4 border-black border rounded-md dark:border-white shadow-paper dark:shadow-paper-dark ${className ? className : ''}`,
+    children,
+  });
+}
+
 exports.Button = Button;
+exports.Card = Card;
+exports.Paper = Paper;
 exports.Typography = Typography;
