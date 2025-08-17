@@ -25,15 +25,7 @@ function getColor(action, color) {
   return color ? colorsClasses[color] : colorsClasses['default'];
 }
 
-const Button = ({
-  children,
-  className,
-  onClick,
-  color = 'default',
-  size = 'medium',
-  action,
-  ...props
-}) => {
+const Button = ({ children, className, onClick, color = 'default', size = 'medium', action, ...props }) => {
   const colorClass = getColor(action, color);
   const sizeClass = sizeClasses[size];
   const buttonClasses = `

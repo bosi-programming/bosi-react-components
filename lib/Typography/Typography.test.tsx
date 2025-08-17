@@ -5,10 +5,7 @@ import { Typography } from './Typography';
 describe('Typography as and size options', () => {
   it('should render as', () => {
     render(
-      <Typography
-        size="body"
-        as="h1"
-      >
+      <Typography size="body" as="h1">
         Test
       </Typography>,
     );
@@ -87,15 +84,11 @@ describe('Typography color options', () => {
   });
   it('should have primary color classes', () => {
     render(<Typography color="primary">Test</Typography>);
-    expect(screen.getByRole('paragraph')).toHaveClass(
-      'text-primary-on-light dark:text-primary-on-dark',
-    );
+    expect(screen.getByRole('paragraph')).toHaveClass('text-primary-on-light dark:text-primary-on-dark');
   });
   it('should have secondary color classes', () => {
     render(<Typography color="secondary">Test</Typography>);
-    expect(screen.getByRole('paragraph')).toHaveClass(
-      'text-secondary-on-light dark:text-secondary-on-dark',
-    );
+    expect(screen.getByRole('paragraph')).toHaveClass('text-secondary-on-light dark:text-secondary-on-dark');
   });
 });
 

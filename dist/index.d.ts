@@ -39,13 +39,7 @@ export declare type TColor = 'default' | 'primary' | 'secondary';
 
 export declare type TSize = 'body' | 'h1' | 'h2' | 'h3' | 'h4' | 'details';
 
-export declare function Typography({
-  color,
-  size,
-  className,
-  children,
-  as,
-}: TypographyProps): JSX.Element;
+export declare function Typography({ color, size, className, children, as }: TypographyProps): JSX.Element;
 
 export declare interface TypographyProps {
   color?: TColor;

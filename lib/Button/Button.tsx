@@ -29,11 +29,7 @@ export const Button = ({
   `;
 
   return (
-    <button
-      onClick={onClick}
-      className={buttonClasses}
-      {...props}
-    >
+    <button onClick={onClick} className={buttonClasses} {...props}>
       {children}
     </button>
   );

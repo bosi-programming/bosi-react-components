@@ -55,10 +55,7 @@ describe('Button action options', () => {
   });
   it('should have use action classes instead of colors', () => {
     render(
-      <Button
-        action="success"
-        color="primary"
-      >
+      <Button action="success" color="primary">
         Test
       </Button>,
     );

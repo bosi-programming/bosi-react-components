@@ -12,13 +12,7 @@ export interface TypographyProps {
   children: ReactNode;
 }
 
-export function Typography({
-  color = 'default',
-  size = 'body',
-  className,
-  children,
-  as,
-}: TypographyProps) {
+export function Typography({ color = 'default', size = 'body', className, children, as }: TypographyProps) {
   const colorClassName = colorClass(color);
   const sizeClassName = sizeClass(size);
   const finalClassName = `${colorClassName} ${sizeClassName} ${className ? className : ''}`;
