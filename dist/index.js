@@ -34,12 +34,7 @@ const Button = ({ children, className, onClick, color = 'default', size = 'mediu
     ${sizeClass}${' '}
     ${className ? className : ''}
   `;
-  return /* @__PURE__ */ jsx('button', {
-    onClick,
-    className: buttonClasses,
-    ...props,
-    children,
-  });
+  return /* @__PURE__ */ jsx('button', { onClick, className: buttonClasses, ...props, children });
 };
 
 function colorClass(color) {
@@ -81,27 +76,25 @@ function Typography({ color = 'default', size = 'body', className, children, as 
   return /* @__PURE__ */ jsx(Component, { className: finalClassName, children });
 }
 
+const nonCardClasses = 'p-4 rounded-md';
+function Paper({ children, className, isCard }) {
+  return /* @__PURE__ */ jsx('div', {
+    className: `border-black border dark:border-white shadow-paper dark:shadow-paper-dark ${className ? className : ''} ${isCard ? '' : nonCardClasses}`,
+    children,
+  });
+}
+
 function Card({ title, content, actions, className }) {
-  return /* @__PURE__ */ jsxs('div', {
-    className: `px-5 py-6 flex justify-between flex-col items-center h-[365px] w-full md:w-[270px] rounded-3xl border-black border shadow-card dark:border-white dark:shadow-card-dark ${className ? className : ''}`,
+  return /* @__PURE__ */ jsxs(Paper, {
+    className: `px-5 py-6 flex justify-between flex-col items-center h-[365px] w-full md:w-[270px] rounded-3xl ${className ? className : ''}`,
     'data-testid': 'card',
+    isCard: true,
     children: [
-      /* @__PURE__ */ jsx(Typography, {
-        color: 'primary',
-        size: 'h3',
-        children: title,
-      }),
+      /* @__PURE__ */ jsx(Typography, { color: 'primary', size: 'h3', children: title }),
       /* @__PURE__ */ jsx('div', { className: 'mt-2', children: content }),
       /* @__PURE__ */ jsx('div', { children: actions }),
     ],
   });
 }
 
-function Paper({ children, className }) {
-  return /* @__PURE__ */ jsx('div', {
-    className: `p-4 border-black border rounded-md dark:border-white shadow-paper dark:shadow-paper-dark ${className ? className : ''}`,
-    children,
-  });
-}
-
-export { Button, Card, Paper, Typography };
+export { Button, Card, Paper, Typography, nonCardClasses };

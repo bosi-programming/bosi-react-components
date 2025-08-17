@@ -28,10 +28,13 @@ export declare interface CardProps {
   className?: string;
 }
 
-export declare function Paper({ children, className }: PaperProps): JSX.Element;
+export declare const nonCardClasses = 'p-4 rounded-md';
+
+export declare function Paper({ children, className, isCard }: PaperProps): JSX.Element;
 
 export declare interface PaperProps {
   children: ReactNode;
+  isCard?: boolean;
   className?: string;
 }
 
