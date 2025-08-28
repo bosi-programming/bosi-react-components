@@ -11,9 +11,11 @@ import storybook from "eslint-plugin-storybook";
 import eslintConfigPrettier from "eslint-plugin-prettier/recommended";
 
 const gitignorePath = fileURLToPath(new URL("./.gitignore", import.meta.url));
+const prettierignorePath = fileURLToPath(new URL("./.prettierignore", import.meta.url));
 
 export default ts.config(
   includeIgnoreFile(gitignorePath),
+  includeIgnoreFile(prettierignorePath),
   js.configs.recommended,
   ...ts.configs.recommended,
   reactRefresh.configs.recommended,
