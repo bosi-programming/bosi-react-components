@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { nonCardClasses } from './constants';
+import { nonCardClasses } from "./constants";
 
 export interface PaperProps {
   children: ReactNode;
