@@ -1,6 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
-import { nonCardClasses, Paper } from "./Paper";
+import { Paper } from "./Paper";
+import { nonCardClasses } from "./constants";
 
 describe("Paper", () => {
   it("should accept children", () => {

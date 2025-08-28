@@ -1,4 +1,3 @@
-import prettier from "eslint-config-prettier";
 import js from "@eslint/js";
 import { includeIgnoreFile } from "@eslint/compat";
 import globals from "globals";
@@ -9,6 +8,7 @@ import reactHooks from "eslint-plugin-react-hooks";
 import reactPlugin from "eslint-plugin-react";
 import jestDom from "eslint-plugin-jest-dom";
 import storybook from "eslint-plugin-storybook";
+import eslintConfigPrettier from "eslint-plugin-prettier/recommended";
 
 const gitignorePath = fileURLToPath(new URL("./.gitignore", import.meta.url));
 
@@ -30,5 +30,5 @@ export default ts.config(
       },
     },
   },
-  prettier,
+  eslintConfigPrettier,
 );
