@@ -20,8 +20,6 @@ export declare interface CardProps {
     className?: string;
 }
 
-export declare const nonCardClasses = "p-4 rounded-md";
-
 export declare function Paper({ children, className, isCard, ...rest }: PaperProps): JSX.Element;
 
 export declare interface PaperProps {
