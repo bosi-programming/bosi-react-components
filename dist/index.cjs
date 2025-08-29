@@ -88,6 +88,7 @@ function Typography({ color = "default", size = "body", className, children, as 
 }
 
 const nonCardClasses = "p-4 rounded-md";
+
 function Paper({ children, className, isCard, ...rest }) {
   return /* @__PURE__ */ jsxRuntime.jsx(
     "div",
@@ -119,4 +120,3 @@ exports.Button = Button;
 exports.Card = Card;
 exports.Paper = Paper;
 exports.Typography = Typography;
-exports.nonCardClasses = nonCardClasses;
