@@ -1,4 +1,5 @@
-import type { ReactNode } from 'react';
+import type { ReactNode } from "react";
+import { nonCardClasses } from "./constants";
 
 export interface PaperProps {
   children: ReactNode;
@@ -6,11 +7,10 @@ export interface PaperProps {
   className?: string;
 }
 
-export const nonCardClasses = 'p-4 rounded-md';
 export function Paper({ children, className, isCard, ...rest }: PaperProps) {
   return (
     <div
-      className={`border-black border dark:border-white shadow-paper dark:shadow-paper-dark ${className ? className : ''} ${isCard ? '' : nonCardClasses}`}
+      className={`shadow-paper dark:shadow-paper-dark border border-black dark:border-white ${className ? className : ""} ${isCard ? "" : nonCardClasses}`}
       {...rest}
     >
       {children}

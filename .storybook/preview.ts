@@ -1,12 +1,12 @@
-import type { Preview, ReactRenderer } from '@storybook/react';
-import { withThemeByClassName } from '@storybook/addon-themes';
+import type { Preview, ReactRenderer } from "@storybook/react";
+import { withThemeByClassName } from "@storybook/addon-themes";
 
-import '../lib/global.css';
+import "../lib/global.css";
 
 const preview: Preview = {
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   parameters: {
-    actions: { argTypesRegex: '^on[A-Z].*' },
+    actions: { argTypesRegex: "^on[A-Z].*" },
     controls: {
       matchers: {
         color: /(background|color)$/i,
@@ -17,10 +17,10 @@ const preview: Preview = {
   decorators: [
     withThemeByClassName<ReactRenderer>({
       themes: {
-        light: 'bg-background-on-light',
-        dark: 'dark  dark:bg-background-on-dark',
+        light: "bg-background-on-light",
+        dark: "dark  dark:bg-background-on-dark",
       },
-      defaultTheme: 'light',
+      defaultTheme: "light",
     }),
   ],
 };

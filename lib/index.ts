@@ -1,6 +1,6 @@
-import './global.css';
+import "./global.css";
 
-export * from './Button';
-export * from './Typography';
-export * from './Card';
-export * from './Paper';
+export * from "./Button";
+export * from "./Typography";
+export * from "./Card";
+export * from "./Paper";
