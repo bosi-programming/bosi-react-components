@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
-import { Typography } from './Typography';
+import { Typography, type TSize } from './Typography';
 
 describe('Typography as and size options', () => {
   it('should render as', () => {
@@ -15,22 +15,12 @@ describe('Typography as and size options', () => {
     render(<Typography size="body">Test</Typography>);
     expect(screen.getByRole('paragraph')).toBeInTheDocument();
   });
-  it('should render a h1', () => {
-    render(<Typography size="h1">Test</Typography>);
-    expect(screen.getByRole('heading', { level: 1 })).toBeInTheDocument();
-  });
-  it('should render a h2', () => {
-    render(<Typography size="h2">Test</Typography>);
-    expect(screen.getByRole('heading', { level: 2 })).toBeInTheDocument();
-  });
-  it('should render a h3', () => {
-    render(<Typography size="h3">Test</Typography>);
-    expect(screen.getByRole('heading', { level: 3 })).toBeInTheDocument();
-  });
-  it('should render a h4', () => {
-    render(<Typography size="h4">Test</Typography>);
-    expect(screen.getByRole('heading', { level: 4 })).toBeInTheDocument();
-  });
+  [1, 2, 3, 4].forEach((num) =>
+    it(`should render a h${num}`, () => {
+      render(<Typography size={`h${num}` as TSize}>Test</Typography>);
+      expect(screen.getByRole('heading', { level: num })).toBeInTheDocument();
+    }),
+  );
   it('should render a details', () => {
     render(<Typography size="details">Test</Typography>);
     expect(screen.getByText('Test').tagName).toBe('DETAILS');
@@ -39,30 +29,12 @@ describe('Typography as and size options', () => {
     render(<Typography as="p">Test</Typography>);
     expect(screen.getByRole('paragraph')).toBeInTheDocument();
   });
-  it('should render a h1', () => {
-    render(<Typography as="h1">Test</Typography>);
-    expect(screen.getByRole('heading', { level: 1 })).toBeInTheDocument();
-  });
-  it('should render a h2', () => {
-    render(<Typography as="h2">Test</Typography>);
-    expect(screen.getByRole('heading', { level: 2 })).toBeInTheDocument();
-  });
-  it('should render a h3', () => {
-    render(<Typography as="h3">Test</Typography>);
-    expect(screen.getByRole('heading', { level: 3 })).toBeInTheDocument();
-  });
-  it('should render a h4', () => {
-    render(<Typography as="h4">Test</Typography>);
-    expect(screen.getByRole('heading', { level: 4 })).toBeInTheDocument();
-  });
-  it('should render a h5', () => {
-    render(<Typography as="h5">Test</Typography>);
-    expect(screen.getByRole('heading', { level: 5 })).toBeInTheDocument();
-  });
-  it('should render a h6', () => {
-    render(<Typography as="h6">Test</Typography>);
-    expect(screen.getByRole('heading', { level: 6 })).toBeInTheDocument();
-  });
+  [1, 2, 3, 4, 5, 6].forEach((num) =>
+    it(`should render a h${num}`, () => {
+      render(<Typography as={`h${num}` as 'h1'}>Test</Typography>);
+      expect(screen.getByRole('heading', { level: num })).toBeInTheDocument();
+    }),
+  );
   it('should render a span', () => {
     render(<Typography as="span">Test</Typography>);
     expect(screen.getByText('Test').tagName).toBe('SPAN');

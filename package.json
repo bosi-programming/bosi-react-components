@@ -81,5 +81,8 @@
   "peerDependencies": {
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
+  },
+  "dependencies": {
+    "ts-pattern": "^5.8.0"
   }
 }

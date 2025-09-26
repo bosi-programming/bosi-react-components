@@ -1,30 +1,23 @@
+import { match, P } from 'ts-pattern';
 import { type TypographyProps } from './Typography';
 
 export function colorClass(color: TypographyProps['color']) {
-  if (color === 'primary') {
-    return 'text-primary-on-light dark:text-primary-on-dark';
-  }
-  if (color === 'secondary') {
-    return 'text-secondary-on-light dark:text-secondary-on-dark';
-  }
-  return 'light:text-black dark:text-gray-93';
+  return match(color)
+    .with('primary', () => 'text-primary-on-light dark:text-primary-on-dark')
+    .with('secondary', () => 'text-secondary-on-light dark:text-secondary-on-dark')
+    .with(P._, () => 'light:text-black dark:text-gray-93')
+    .exhaustive();
 }
 
 export function sizeClass(size: TypographyProps['size']) {
-  switch (size) {
-    case 'h1':
-      return 'text-h1 font-bold';
-    case 'h2':
-      return 'text-h2 font-bold';
-    case 'h3':
-      return 'text-h3 font-bold';
-    case 'h4':
-      return 'text-h4 font-bold';
-    case 'details':
-      return 'text-details';
-    default:
-      return 'text-body mb-4';
-  }
+  return match(size)
+    .with('h1', () => 'text-h1 font-bold')
+    .with('h2', () => 'text-h2 font-bold')
+    .with('h3', () => 'text-h3 font-bold')
+    .with('h4', () => 'text-h4 font-bold')
+    .with('details', () => 'text-details')
+    .with(P._, () => 'text-body mb-4')
+    .exhaustive();
 }
 
 export function getComponent(size: TypographyProps['size'], as: TypographyProps['as']) {
