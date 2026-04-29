@@ -8,6 +8,7 @@ import reactHooks from 'eslint-plugin-react-hooks';
 import reactPlugin from 'eslint-plugin-react';
 import jestDom from 'eslint-plugin-jest-dom';
 import storybook from 'eslint-plugin-storybook';
+import svelte from 'eslint-plugin-svelte';
 import eslintConfigPrettier from 'eslint-plugin-prettier/recommended';
 
 const gitignorePath = fileURLToPath(new URL('./.gitignore', import.meta.url));
@@ -24,6 +25,7 @@ export default ts.config(
   reactPlugin.configs.flat['jsx-runtime'],
   jestDom.configs['flat/recommended'],
   storybook.configs['flat/recommended'],
+  ...svelte.configs['flat/recommended'],
   {
     languageOptions: {
       globals: {
@@ -33,4 +35,22 @@ export default ts.config(
     },
   },
   eslintConfigPrettier,
+  ...svelte.configs['flat/prettier'],
+  {
+    files: ['**/*.svelte'],
+    languageOptions: {
+      parserOptions: {
+        parser: ts.parser,
+        svelteConfig: {
+          onwarn: (warning, handler) => {
+            if (warning.code === 'custom_element_props_identifier') return;
+            handler(warning);
+          },
+        },
+      },
+    },
+    rules: {
+      'prettier/prettier': 'off',
+    },
+  },
 );

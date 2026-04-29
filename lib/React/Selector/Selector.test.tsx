@@ -35,7 +35,7 @@ describe('Selector basics', () => {
   });
   it('should not render label when not provided', () => {
     render(<Selector options={defaultOptions} name="test" />);
-    expect(screen.queryByLabelText('test')).toBeNull();
+    expect(screen.queryByLabelText('test')).not.toBeInTheDocument();
   });
 });
 
@@ -66,7 +66,7 @@ describe('Selector placeholder and options', () => {
       { id: '1', label: 'Option 1' },
     ];
     render(<Selector options={optionsWithEmpty} />);
-    expect(screen.queryByRole('option', { name: 'Empty' })).toBeNull();
+    expect(screen.queryByRole('option', { name: 'Empty' })).not.toBeInTheDocument();
     expect(screen.getByRole('option', { name: 'Option 1' })).toBeInTheDocument();
   });
   it('should render all valid options', () => {

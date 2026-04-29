@@ -40,7 +40,7 @@
     "build:lib": "rm -rf react-dist svelte-dist && pnpm build:react && pnpm build:svelte",
     "build:react": "tsc && vite build",
     "build:svelte": "svelte-package -i ./lib -o ./svelte-dist && rm -rf ./svelte-dist/React ./svelte-dist/react.*",
-    "lint": "prettier --check . && eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "lint": "prettier --check . && eslint . --report-unused-disable-directives --max-warnings 0",
     "format": "prettier . --write --ignore-unknown",
     "prepare": "husky install"
   },

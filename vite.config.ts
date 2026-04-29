@@ -47,6 +47,7 @@ export default defineConfig(({ mode }) => ({
   test: {
     environment: 'jsdom',
     setupFiles: './lib/React/test/setup.ts',
+    include: ['lib/**/*.test.{ts,tsx}'],
     coverage: {
       all: false,
       enabled: true,

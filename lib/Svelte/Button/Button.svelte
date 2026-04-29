@@ -3,7 +3,7 @@
   import type { HTMLButtonAttributes } from 'svelte/elements';
   import {
     type ButtonProps,
-    getFinalClassName
+    getButtonFinalClassName
   } from '../../globals/Button';
 
   interface Props extends ButtonProps, Omit<HTMLButtonAttributes, 'color' | 'class' | 'children'> {
@@ -21,7 +21,7 @@
   }: Props = $props();
 
   const buttonClasses = $derived(
-    getFinalClassName(action, color, size, className)
+    getButtonFinalClassName(action, color, size, className)
   );
 </script>
 
