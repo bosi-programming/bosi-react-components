@@ -1,6 +1,6 @@
 <script lang="ts">
     import type { Snippet } from 'svelte';
-  import { type TypographyProps, getComponent, getFinalClassName } from '../../globals/Typography';
+  import { type TypographyProps, getComponent, getTypographyFinalClassName } from '../../globals/Typography';
 
   const {
     color,
@@ -18,7 +18,7 @@
   } = $props();
 
   const finalClassName = $derived(
-    getFinalClassName(color, size, className)
+    getTypographyFinalClassName(color, size, className)
   );
   const component = $derived(getComponent(size, as));
 </script>
