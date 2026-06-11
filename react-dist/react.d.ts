@@ -31,6 +31,13 @@ export declare interface ButtonProps extends Omit<React.HTMLAttributes<HTMLButto
 
 export declare type ButtonSize = 'small' | 'medium' | 'full-width';
 
+export declare function BuyMeACoffee({ linkText, preText }: BuyMeACoffeeProps): JSX.Element;
+
+declare interface BuyMeACoffeeProps {
+    preText?: string;
+    linkText: ReactNode;
+}
+
 export declare function Card({ title, content, actions, className }: CardProps): JSX.Element;
 
 export declare interface CardProps {

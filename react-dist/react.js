@@ -87,6 +87,22 @@ function Typography({
   return /* @__PURE__ */ jsx(Component, { id, htmlFor, className: finalClassName, children });
 }
 
+function BuyMeACoffee({ linkText, preText }) {
+  return /* @__PURE__ */ jsx("div", { className: "flex w-5/6 max-w-screen-md", children: /* @__PURE__ */ jsxs(Typography, { className: "lg:text-base", children: [
+    preText,
+    /* @__PURE__ */ jsx(
+      "a",
+      {
+        href: "https://www.buymeacoffee.com/bosi.programming",
+        target: "_blank",
+        rel: "noopener noreferrer",
+        className: "text-secondary-on-light dark:text-secondary-on-dark inline-block underline transition duration-300 ease-in-out hover:scale-110",
+        children: linkText
+      }
+    )
+  ] }) });
+}
+
 const nonCardClasses = "p-4 rounded-xl";
 
 function Paper({ children, className, isCard, ...rest }) {
@@ -114,101 +130,6 @@ function Card({ title, content, actions, className }) {
       ]
     }
   );
-}
-
-function Input({
-  name,
-  disabled,
-  required,
-  value,
-  setValue,
-  label,
-  placeholder,
-  className,
-  type = "text",
-  error
-}) {
-  return /* @__PURE__ */ jsxs("div", { className: `flex w-full flex-col ${className}`, children: [
-    label ? /* @__PURE__ */ jsxs(Typography, { as: "label", id: `label-${name}`, htmlFor: name, className: "mb-2! ml-2", children: [
-      label,
-      required ? "*" : null
-    ] }) : null,
-    /* @__PURE__ */ jsx(
-      "input",
-      {
-        required,
-        id: name,
-        className: `w-full rounded-xl border border-gray-300 bg-gray-50 px-2 py-3 text-gray-900 placeholder:text-gray-500 focus:border-blue-500 focus:ring-blue-500 ${placeholderStyles} ${inputDarkClasses} ${error ? inputErrorClasses : null}`,
-        placeholder,
-        value,
-        onChange: (e) => setValue(e.target.value),
-        name,
-        type,
-        disabled,
-        "aria-invalid": !!error,
-        "aria-errormessage": error ? `error-${name}` : void 0,
-        "aria-describedby": label ? `label-${name}` : void 0
-      }
-    ),
-    error ? /* @__PURE__ */ jsx(Typography, { size: "details", as: "p", id: `error-${name}`, className: `ml-2 ${textErrorClasses}`, children: error }) : null
-  ] });
-}
-
-function Selector({
-  placeholder,
-  options,
-  label,
-  name,
-  required,
-  disabled,
-  error,
-  className,
-  ...rest
-}) {
-  const [clicked, setClicked] = useState(false);
-  return /* @__PURE__ */ jsxs("div", { className: `flex w-full flex-col ${className}`, children: [
-    label ? /* @__PURE__ */ jsxs(Typography, { as: "label", id: `label-${name}`, htmlFor: name, className: "mb-2! ml-2", children: [
-      label,
-      required ? "*" : null
-    ] }) : null,
-    /* @__PURE__ */ jsxs("div", { className: "relative", onMouseEnter: () => setClicked(!clicked), onMouseLeave: () => setClicked(!clicked), children: [
-      /* @__PURE__ */ jsxs(
-        "select",
-        {
-          ...rest,
-          name,
-          id: name,
-          required,
-          className: `${selectorBaseClasses} ${selectorDarkClasses} ${!rest.value && !clicked ? fakePlaceholderStyles : ""}`,
-          disabled,
-          "aria-label": label,
-          "aria-invalid": !!error,
-          "aria-errormessage": error ? `error-${name}` : void 0,
-          "aria-describedby": label ? `label-${name}` : void 0,
-          children: [
-            /* @__PURE__ */ jsx("option", { value: "", disabled: true, children: placeholder }),
-            options.map(({ id, label: label2 }) => {
-              if (id === "") return null;
-              return /* @__PURE__ */ jsx("option", { value: id, children: label2 }, id);
-            })
-          ]
-        }
-      ),
-      /* @__PURE__ */ jsx(
-        "svg",
-        {
-          xmlns: "http://www.w3.org/2000/svg",
-          fill: "none",
-          viewBox: "0 0 24 24",
-          strokeWidth: "1.2",
-          stroke: "currentColor",
-          className: selectorIconStyles,
-          children: /* @__PURE__ */ jsx("path", { strokeLinecap: "round", strokeLinejoin: "round", d: "M8.25 15 12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9" })
-        }
-      )
-    ] }),
-    error ? /* @__PURE__ */ jsx(Typography, { size: "details", as: "p", id: `error-${name}`, className: `ml-2 ${textErrorClasses}`, children: error }) : null
-  ] });
 }
 
 function Github({ className, size }) {
@@ -495,4 +416,99 @@ function BrasilFlag({ className, size }) {
   );
 }
 
-export { BrasilFlag, Button, Card, Github, Input, Instagram, Linkedin, Paper, Selector, Typography, USAFlag, actionClasses, baseButtonClasses, colorsClasses, fakePlaceholderStyles, getButtonFinalClassName, getComponent, getTypographyFinalClassName, inputDarkClasses, inputErrorClasses, placeholderStyles, selectorBaseClasses, selectorDarkClasses, selectorIconStyles, sizeClasses, textErrorClasses };
+function Input({
+  name,
+  disabled,
+  required,
+  value,
+  setValue,
+  label,
+  placeholder,
+  className,
+  type = "text",
+  error
+}) {
+  return /* @__PURE__ */ jsxs("div", { className: `flex w-full flex-col ${className}`, children: [
+    label ? /* @__PURE__ */ jsxs(Typography, { as: "label", id: `label-${name}`, htmlFor: name, className: "mb-2! ml-2", children: [
+      label,
+      required ? "*" : null
+    ] }) : null,
+    /* @__PURE__ */ jsx(
+      "input",
+      {
+        required,
+        id: name,
+        className: `w-full rounded-xl border border-gray-300 bg-gray-50 px-2 py-3 text-gray-900 placeholder:text-gray-500 focus:border-blue-500 focus:ring-blue-500 ${placeholderStyles} ${inputDarkClasses} ${error ? inputErrorClasses : null}`,
+        placeholder,
+        value,
+        onChange: (e) => setValue(e.target.value),
+        name,
+        type,
+        disabled,
+        "aria-invalid": !!error,
+        "aria-errormessage": error ? `error-${name}` : void 0,
+        "aria-describedby": label ? `label-${name}` : void 0
+      }
+    ),
+    error ? /* @__PURE__ */ jsx(Typography, { size: "details", as: "p", id: `error-${name}`, className: `ml-2 ${textErrorClasses}`, children: error }) : null
+  ] });
+}
+
+function Selector({
+  placeholder,
+  options,
+  label,
+  name,
+  required,
+  disabled,
+  error,
+  className,
+  ...rest
+}) {
+  const [clicked, setClicked] = useState(false);
+  return /* @__PURE__ */ jsxs("div", { className: `flex w-full flex-col ${className}`, children: [
+    label ? /* @__PURE__ */ jsxs(Typography, { as: "label", id: `label-${name}`, htmlFor: name, className: "mb-2! ml-2", children: [
+      label,
+      required ? "*" : null
+    ] }) : null,
+    /* @__PURE__ */ jsxs("div", { className: "relative", onMouseEnter: () => setClicked(!clicked), onMouseLeave: () => setClicked(!clicked), children: [
+      /* @__PURE__ */ jsxs(
+        "select",
+        {
+          ...rest,
+          name,
+          id: name,
+          required,
+          className: `${selectorBaseClasses} ${selectorDarkClasses} ${!rest.value && !clicked ? fakePlaceholderStyles : ""}`,
+          disabled,
+          "aria-label": label,
+          "aria-invalid": !!error,
+          "aria-errormessage": error ? `error-${name}` : void 0,
+          "aria-describedby": label ? `label-${name}` : void 0,
+          children: [
+            /* @__PURE__ */ jsx("option", { value: "", disabled: true, children: placeholder }),
+            options.map(({ id, label: label2 }) => {
+              if (id === "") return null;
+              return /* @__PURE__ */ jsx("option", { value: id, children: label2 }, id);
+            })
+          ]
+        }
+      ),
+      /* @__PURE__ */ jsx(
+        "svg",
+        {
+          xmlns: "http://www.w3.org/2000/svg",
+          fill: "none",
+          viewBox: "0 0 24 24",
+          strokeWidth: "1.2",
+          stroke: "currentColor",
+          className: selectorIconStyles,
+          children: /* @__PURE__ */ jsx("path", { strokeLinecap: "round", strokeLinejoin: "round", d: "M8.25 15 12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9" })
+        }
+      )
+    ] }),
+    error ? /* @__PURE__ */ jsx(Typography, { size: "details", as: "p", id: `error-${name}`, className: `ml-2 ${textErrorClasses}`, children: error }) : null
+  ] });
+}
+
+export { BrasilFlag, Button, BuyMeACoffee, Card, Github, Input, Instagram, Linkedin, Paper, Selector, Typography, USAFlag, actionClasses, baseButtonClasses, colorsClasses, fakePlaceholderStyles, getButtonFinalClassName, getComponent, getTypographyFinalClassName, inputDarkClasses, inputErrorClasses, placeholderStyles, selectorBaseClasses, selectorDarkClasses, selectorIconStyles, sizeClasses, textErrorClasses };
