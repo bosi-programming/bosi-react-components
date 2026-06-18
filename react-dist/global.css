@@ -41,7 +41,6 @@
     --color-black: #2f3032;
     --color-white: #fff;
     --spacing: .25rem;
-    --breakpoint-md: 48rem;
     --text-base: 1rem;
     --text-base--line-height: calc(1.5 / 1);
     --text-3xl: 1.875rem;
@@ -436,16 +435,8 @@
     width: calc(var(--spacing) * 5);
   }
 
-  .w-5\/6 {
-    width: 83.3333%;
-  }
-
   .w-full {
     width: 100%;
-  }
-
-  .max-w-screen-md {
-    max-width: var(--breakpoint-md);
   }
 
   .cursor-pointer {

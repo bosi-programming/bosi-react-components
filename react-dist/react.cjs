@@ -91,8 +91,8 @@ function Typography({
   return /* @__PURE__ */ jsxRuntime.jsx(Component, { id, htmlFor, className: finalClassName, children });
 }
 
-function BuyMeACoffee({ linkText, preText }) {
-  return /* @__PURE__ */ jsxRuntime.jsx("div", { className: "flex w-5/6 max-w-screen-md", children: /* @__PURE__ */ jsxRuntime.jsxs(Typography, { className: "lg:text-base", children: [
+function BuyMeACoffee({ linkText, preText, className }) {
+  return /* @__PURE__ */ jsxRuntime.jsx("div", { className, children: /* @__PURE__ */ jsxRuntime.jsxs(Typography, { className: "lg:text-base", children: [
     preText,
     /* @__PURE__ */ jsxRuntime.jsx(
       "a",
