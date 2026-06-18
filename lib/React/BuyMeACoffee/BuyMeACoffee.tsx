@@ -4,11 +4,12 @@ import { Typography } from '../Typography';
 interface BuyMeACoffeeProps {
   preText?: string;
   linkText: ReactNode;
+  className?: string;
 }
 
-export function BuyMeACoffee({ linkText, preText }: BuyMeACoffeeProps) {
+export function BuyMeACoffee({ linkText, preText, className }: BuyMeACoffeeProps) {
   return (
-    <div className="flex w-5/6 max-w-screen-md">
+    <div className={className}>
       <Typography className="lg:text-base">
         {preText}
         <a
