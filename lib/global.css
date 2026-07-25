@@ -35,4 +35,7 @@ html {
   --color-background-on-light: #fdf5e5;
   --color-nav-background-on-dark: #2e4649;
   --color-nav-background-on-light: #e8e1d3;
+
+  --shadow-paper: 4px 4px 4px 0px rgb(0 0 0 / 0.25);
+  --shadow-paper-dark: 4px 4px 4px 0px rgb(255 255 255 / 0.25);
 }

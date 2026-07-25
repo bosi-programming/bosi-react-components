@@ -1,4 +1,4 @@
 import './global.css';
 
-export * from './React';
+export * from './React/index';
 export * from './globals';
